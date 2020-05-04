@@ -7,8 +7,8 @@ This project is an interactive web map of the Airport in the United States and i
 More information on the data sources and libraries used can be found below the two maps. _This project was created for GEOG 458 with Bo Zhao at the University of Washington_
 
 ## Project Map
-![Map of the US](img/map.jpg)
-![Map of the US](img/map-full.jpg)
+![Map of the US](img/map.JPG)
+![Map of the US](img/map-full.JPG)
 
 #### Data Sources
 - `airports.geojson` contains all the airports in the United States. It was converted from a shapfile found on [Data.gov](https://catalog.data.gov/dataset/usgs-small-scale-dataset-airports-of-the-united-states-201207-shapefile). Each airport has a `CNTL_TWR` property that shows if the airport has an ATC tower.
@@ -18,4 +18,4 @@ More information on the data sources and libraries used can be found below the t
 - `chroma.js` was used to dynamically generate a set of colors to be used for the color scheme in the choropleth map of states.
 - `leaflet.js` was used to allow for quick deployment of a web map with interactivity.
 - `jQuery` was used so for quicker development and better readability.
-- Airport icons were found at [Font Awesome](https://fontawesome.com/?from=io). 
+- Airport icons were found at [Font Awesome](https://fontawesome.com/?from=io).
