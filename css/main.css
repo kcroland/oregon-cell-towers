@@ -57,14 +57,7 @@ html, body, #map {
     box-shadow: none;
     font-weight: bold;
     font-size: 12px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-shadow: 0 0 2px #FFFFFF;
     color: rgba(35, 35, 35, 0.78)
-}
-
-#toggle-tower {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  border: 1px solid red;
 }
