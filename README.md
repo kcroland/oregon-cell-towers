@@ -7,7 +7,7 @@ This project is an interactive web map of the Airport in the United States and i
 More information on the data sources and libraries used can be found below the two maps. _This project was created for GEOG 458 with Bo Zhao at the University of Washington_
 
 ## Project Map
-![Map of the US](img/map.jpg)
+![Map of the US]("img/map.jpg")
 ![Map of the US](img/map-full.jpg)
 
 #### Data Sources
