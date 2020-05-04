@@ -4,9 +4,10 @@
   let mymap;
   let colors = chroma.scale('YlGnBu').colors(5);
 
-  window.addEventListener("load", init);
+  window.addEventListener("load", main);
 
-  function init() {
+  /** Builds the map and displays it on the webpage */
+  function main() {
     initMap();
     addAirports();
     addBounds();
@@ -14,6 +15,7 @@
     L.control.scale({position: 'bottomleft'}).addTo(mymap);
   }
 
+  /** Adds the initial map with basemap */
   function initMap() {
     mymap = L.map('map', {
         center: [39.82, -98.58],
@@ -24,6 +26,7 @@
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(mymap);
   }
 
+  /** Adds the airport markers from airport.geojson on to the map */
   function addAirports() {
     let airports = null;
 
@@ -49,17 +52,24 @@
     airports.addTo(mymap);
   }
 
+  /** Adds the state polygons from us-states.geojson on to the map */
   function addBounds() {
     L.geoJson.ajax("assets/us-states.geojson").addTo(mymap);
 
     L.geoJson.ajax("assets/us-states.geojson", {
-      // onEachFeature: function (feature, layer) {
-      //   layer.bindPopup("Count = " + feature.properties.count.toString());
-      // },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup("Count = " + feature.properties.count);
+      },
       style: style
     }).addTo(mymap);
   }
 
+  /**
+   * Returns an appropriate color based on the given
+   * of number of airports
+   * @param {number} density - # of airports
+   * @returns {string} - color from generated list
+   */
   function setColor(density) {
     let id = 0; // Default, density <= 8
     if (density > 59) { id = 4; }
@@ -69,6 +79,11 @@
     return colors[id];
   }
 
+  /**
+   * Returns a style object for the given state feature
+   * @param {object} feature - state polygon
+   * @returns {object} - polygon style
+   */
   function style(feature) {
     return {
         fillColor: setColor(feature.properties.count),
@@ -80,6 +95,7 @@
     };
   }
 
+  /** Generates and adds a legend to the page */
   function addLegend() {
     let legend = L.control({
       position: 'bottomleft'
